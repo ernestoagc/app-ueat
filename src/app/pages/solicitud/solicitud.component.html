@@ -1,0 +1,36 @@
+<!-- Modal -->
+<div class="modal fade" id="ModalSolicitud" tabindex="-1" role="dialog" aria-labelledby="exampleModalLabel" aria-hidden="true">
+    <div class="modal-dialog" role="document">
+        <div class="modal-content">
+            <div class="modal-header">
+                <h5 class="modal-title" id="exampleModalLabel">Application form</h5>
+                <button type="button" class="close" #closeBtn data-dismiss="modal" aria-label="Close">
+                    <span aria-hidden="true">&times;</span>
+                </button>
+            </div>
+            <div class="modal-body">
+
+                <form class="">
+                    
+                    <div class="position-relative row form-group">
+                        <label for="puesto" class="col-sm-2 col-form-label">Position</label>
+                        <div class="col-sm-10"><input name="puesto" [(ngModel)]="recomendacion.position"  id="position" required  type="text" class="form-control"></div>
+                    </div>
+                    <div class="position-relative row form-group">
+                        <label for="comentario" class="col-sm-2 col-form-label">Comment</label>
+                        <div class="col-sm-10"><textarea name="text" [(ngModel)]="recomendacion.comment"  id="comment" class="form-control"></textarea></div>
+                    </div>
+                    
+
+                </form>
+
+                
+           
+            </div>
+            <div class="modal-footer">
+                <button type="button" class="btn btn-secondary" data-dismiss="modal">Close</button>
+                <button type="button" class="btn btn-primary"  (click)="nuevaSolicitud()">Save</button>
+            </div>
+        </div>
+    </div>
+</div>

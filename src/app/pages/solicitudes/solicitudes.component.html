@@ -1,0 +1,64 @@
+<button class="btn-flotante btn btn-info" (click)="abrirModal(0)" data-toggle="modal" data-target="#ModalSolicitud" >
+    <i class="fa fa-plus fa-w-16  fa-2x"></i>
+</button>
+ 
+<div class="main-card mb-2 card">
+    <div class="card-body">
+        <div class="row">
+            <div class="col-1"></div>
+
+            <div class="col-10">
+
+                <ul class="list-group col-12">
+                    <app-buscar-solicitud [pagina]="paginaBuscador"
+                        (solicitudesResultante)="obtenerSolicitudesResultante($event)"></app-buscar-solicitud>
+
+                </ul>
+            </div>
+            <div class="col-1">
+            </div>
+
+        </div>
+        
+
+
+
+    </div>
+
+
+</div> 
+
+<div class="alert alert-secondary" role="alert">Total amount of result: <b>{{totalSolicitudes}}</b></div>
+
+<div class="card-columns">
+    <div *ngFor="let item of recomendaciones" class="main-card mb-3 card">
+        <div class="card-body">
+            <h5 class="card-title">{{item.position}}</h5>
+           <h6 class="card-subtitle"> 
+
+            <span
+                   class="badge badge-pill badge-success">{{item.id | number:'3.0'}}</span>
+
+           </h6> 
+            <ul class="nav flex-column">
+                <li class="nav-item">                   
+                        <i class="fa fa-comments"> </i>
+                        {{item.comment}}                    
+                </li>
+            </ul>
+        </div>        
+    </div>
+</div>
+
+
+<div class="row">
+    <div class="col-md-12">
+        <ngx-spinner bdOpacity=0.9 bdColor="" size="default" color="#581f87" type="ball-pulse-sync"
+            [fullScreen]="false">
+        </ngx-spinner>
+    </div>
+</div>
+
+<div class="search-results" infiniteScroll [infiniteScrollDistance]="2" [infiniteScrollThrottle]="50"
+    (scrolled)="onScroll()">
+</div>

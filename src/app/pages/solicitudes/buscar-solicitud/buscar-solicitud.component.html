@@ -1,0 +1,26 @@
+<div class="form-horizontal">
+
+    <div class="form-group position-relative">
+        <div class="input-group">
+
+
+            <ng-autocomplete [data]="countries" [(ngModel)]="puestoBuscar" [searchKeyword]="keyword"
+                placeHolder="buscar" (selected)='selectEvent($event)' (inputChanged)='onChangeSearch($event)'
+                (inputFocused)='onFocused($event)' [itemTemplate]="itemTemplate">
+            </ng-autocomplete>
+            <div class="input-group-append"><button class="btn btn-primary" (click)="buscar()"><span
+                        class="btn-icon-wrapper"><i class="fa fa-search fa-w-20"></i></span></button>
+            </div>
+            <ng-template #itemTemplate let-item>
+                <a [innerHTML]="item.name"></a>
+            </ng-template>
+
+            <ng-template #notFoundTemplate let-notFound>
+                <div [innerHTML]="notFound"></div>
+            </ng-template>
+
+
+        </div>
+    </div>
+
+</div>

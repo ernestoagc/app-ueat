@@ -1,0 +1,29 @@
+apiVersion: apps/v1
+kind: Deployment
+metadata:
+  labels:
+    app: recomendacion-front
+  name: recomendacion-front
+  namespace: default
+spec:
+  replicas: 1 #CHANGE
+  minReadySeconds: 5
+  selector:
+    matchLabels:
+      app: recomendacion-front
+  strategy:
+    rollingUpdate:
+      maxSurge: 25%
+      maxUnavailable: 25%
+    type: RollingUpdate
+  template:
+    metadata:
+      labels:
+        app: recomendacion-front
+    spec:
+      containers:
+      - image: ernestoagc/recomendacion-front:#{Build.BuildId}#
+        imagePullPolicy: IfNotPresent
+        name: recomendacion-front
+      restartPolicy: Always
+      terminationGracePeriodSeconds: 5
