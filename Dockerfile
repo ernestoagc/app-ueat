@@ -3,8 +3,7 @@ WORKDIR /app
 COPY package.json ./
 RUN npm install
 COPY . .
-ARG configuration=production
-RUN npm run build --prod --configuration=$configuration --base-href=/
+RUN npm run build --prod --configuration=production--base-href=/
 
 FROM nginx:1.17.1-alpine AS prod-stage
 RUN rm -rf /usr/share/nginx/html/* && rm -rf /etc/nginx/nginx.conf

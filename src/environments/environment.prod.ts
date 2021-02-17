@@ -1,4 +1,4 @@
 export const environment = {
   production: true,
-  servicioURL:"http://localhost:8500"
+  servicioURL:"http://ueat-api:8500"
 };

@@ -59,7 +59,7 @@ export class SolicitudService {
     console.log("puesto:"+puesto);
     console.log("estado:"+estado);
     console.log("page:"+page);
-    return this.http.get(this.urlEndPoint + `page/ ${page}?puesto=${puesto}&estado=${estado}`).pipe( 
+    return this.http.get(this.urlEndPoint + `page/ ${page}?position=${puesto}`).pipe( 
        map (function(response:any) {    
          console.log("respuesta: =>");
          console.log(response);            
